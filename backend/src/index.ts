@@ -18,7 +18,8 @@ dotenv.config();
 // Validate environment before starting
 try {
   validateEnvironment();
-} catch (error) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+} catch (_error) {
   process.exit(1);
 }
 

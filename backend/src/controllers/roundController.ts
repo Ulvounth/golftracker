@@ -158,7 +158,8 @@ export const getRounds = async (req: Request, res: Response): Promise<void> => {
     if (nextToken) {
       try {
         queryParams.ExclusiveStartKey = JSON.parse(Buffer.from(nextToken, 'base64').toString());
-      } catch (error) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (_error) {
         res.status(400).json({ message: 'Ugyldig nextToken' });
         return;
       }

@@ -32,7 +32,8 @@ export const getProfile = async (req: Request, res: Response): Promise<void> => 
       return;
     }
 
-    const { password, ...userWithoutPassword } = result.Item;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password: _password, ...userWithoutPassword } = result.Item;
     res.json(userWithoutPassword);
   } catch (error) {
     logger.error('Get profile error:', error);
@@ -65,7 +66,8 @@ export const updateProfile = async (req: Request, res: Response): Promise<void> 
       })
     );
 
-    const { password, ...userWithoutPassword } = result.Attributes || {};
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password: _password, ...userWithoutPassword } = result.Attributes || {};
     res.json(userWithoutPassword);
   } catch (error) {
     logger.error('Update profile error:', error);

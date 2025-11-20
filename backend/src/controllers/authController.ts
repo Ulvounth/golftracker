@@ -62,7 +62,8 @@ export const register = async (req: Request, res: Response): Promise<void> => {
     const token = generateToken({ userId, email });
 
     // Returner brukerdata uten passord
-    const { password: _, ...userWithoutPassword } = user;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password: _password, ...userWithoutPassword } = user;
 
     res.status(201).json({
       user: userWithoutPassword,
@@ -113,7 +114,8 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     const token = generateToken({ userId: user.id, email: user.email });
 
     // Returner brukerdata uten passord
-    const { password: _, ...userWithoutPassword } = user;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password: _password, ...userWithoutPassword } = user;
 
     res.json({
       user: userWithoutPassword,
